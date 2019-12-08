@@ -1,0 +1,15 @@
+1. Create project
+laravel new <project name>
+2. Run server
+php artisan serve
+3. Create controller
+php artisan make:controller <controller name>
+4. Create Eloquent model class => Use model name instead of DB::table
+php artisan make:model <model name>
+5. Create and migrate table => table in database->migrations->table name
+php artisan make:migration create_<table name>_table
+*** All 3, 4, 5: 
+php artisan make:model <model name> -mc
+6. Edit created table (Add columns...)
+- Change in database->migrations->table name.
+- php artisan migrate:fresh (loose all data => not used when deployed project)
