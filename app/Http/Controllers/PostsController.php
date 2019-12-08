@@ -5,15 +5,16 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Post;
 
-class PostsController {
+class PostsController extends Controller {
   public function show($post) {
     // $posts = [
     //     'my-first-post' => 'Hello, this is my first post',
     //     'my-second-post' => 'Hello, this is my second post'
     // ];
-    $slug = Post::where('slug', $post)->firstOrFail();  //firstOrFail == if (! $slug) {abort(404)}
+    // $slug = Post::where('slug', $post)->firstOrFail();  //firstOrFail == if (! $slug) {abort(404)}
+    $slug = Post::find($post);
     // dd($slug);
-    return $slug->body; 
+    return $slug; 
   }
 }
 

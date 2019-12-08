@@ -24,3 +24,9 @@ Route::get('/', function () {
 // }); 
 
 Route::get('/posts/{post}', 'PostsController@show');
+
+Route::get('/posts', function() {
+    // $post = App\Post::all();
+    $post = App\Post::take(2)->latest('updated_at')->get();
+    return $post;
+});
