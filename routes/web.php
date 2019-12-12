@@ -30,3 +30,17 @@ Route::get('/posts', function() {
     $post = App\Post::take(2)->latest('updated_at')->get();
     return $post;
 });
+
+Route::get('/cards', function() {
+    // $post = App\Post::all();
+    $cards = App\card::all();
+    // dd($cards);
+    return $cards;
+});
+
+Route::get('/services', function() {
+    // $post = App\Post::all();
+    $services = App\service::all();
+    // dd($cards);
+    return $services;
+});

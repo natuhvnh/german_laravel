@@ -10,6 +10,10 @@ php artisan make:model <model name>
 php artisan make:migration create_<table name>_table
 *** All 3, 4, 5: 
 php artisan make:model <model name> -mc
+php artisan migrate
 6. Edit created table (Add columns...)
 - Change in database->migrations->table name.
 - php artisan migrate:fresh (loose all data => not used when deployed project)
+
+*** Clone project from github fix error: https://stackoverflow.com/questions/48116952/how-to-start-laravel-project-that-i-downloaded-from-github
+*** Fix CORS: https://github.com/barryvdh/laravel-cors
