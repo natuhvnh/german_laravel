@@ -44,3 +44,6 @@ Route::get('/services', function() {
     // dd($cards);
     return $services;
 });
+
+//like cards, services but put App/card:all in index function in introController
+Route::get('/intros', 'introController@index');     

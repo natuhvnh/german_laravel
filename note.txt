@@ -8,8 +8,8 @@ php artisan make:controller <controller name>
 php artisan make:model <model name>
 5. Create and migrate table => table in database->migrations->table name
 php artisan make:migration create_<table name>_table
-*** All 3, 4, 5: 
-php artisan make:model <model name> -mc
+*** All 3, 4, 5 and controller resources (index, edit, update, destroy...) 
+php artisan make:model <model name> -rmc
 php artisan migrate
 6. Edit created table (Add columns...)
 - Change in database->migrations->table name.
