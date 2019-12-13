@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\intro;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+
 
 class IntroController extends Controller
 {
@@ -15,6 +17,7 @@ class IntroController extends Controller
     public function index()
     {
         $intros = intro::all();
+        // $intros = intro::latest()->get();
         return $intros;
     }
 
@@ -36,7 +39,26 @@ class IntroController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'heading' => 'required',
+            'intro' => 'required',
+            'icon' => 'required'
+        ]);
+        if ($validator->fails()) {
+            return $validator->messages()->first();
+        }
+
+        $intro = new intro();
+        $intro->heading = request('heading');
+        $intro->intro = request('intro');
+        $intro->icon = request('icon');
+        $intro->save();
+        return redirect('/');
+
+        // Alternative
+        // intro::create($validator->validate());
+        // return redirect('/');
+
     }
 
     /**
@@ -47,7 +69,9 @@ class IntroController extends Controller
      */
     public function show(intro $intro)
     {
-        //
+        // parameter intro $intro do the following line => Dont have to write line but keep it for clearly explain
+        $intro = intro::findOrFail($intro);
+        return $intro;
     }
 
     /**
@@ -58,7 +82,8 @@ class IntroController extends Controller
      */
     public function edit(intro $intro)
     {
-        //
+        $intro = intro::findOrFail($intro);
+        return $intro;
     }
 
     /**
@@ -70,7 +95,25 @@ class IntroController extends Controller
      */
     public function update(Request $request, intro $intro)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'heading' => 'required',
+            'intro' => 'required',
+            'icon' => 'required'
+        ]);
+        if ($validator->fails()) {
+            return $validator->messages()->first();
+        }
+
+        // $intro = intro::findOrFail($intro)->first();
+        // $intro->heading = request('heading');
+        // $intro->intro = request('intro');
+        // $intro->icon = request('icon');
+        // $intro->save();
+        // return redirect('/');
+
+        // Alternative
+        $intro->update($validator->validate());
+        return redirect('/');
     }
 
     /**
@@ -81,6 +124,7 @@ class IntroController extends Controller
      */
     public function destroy(intro $intro)
     {
-        //
+        $intro = intro::findOrFail($intro)->first()->delete();
+        return redirect('/');
     }
 }

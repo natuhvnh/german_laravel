@@ -17,3 +17,4 @@ php artisan migrate
 
 *** Clone project from github fix error: https://stackoverflow.com/questions/48116952/how-to-start-laravel-project-that-i-downloaded-from-github
 *** Fix CORS: https://github.com/barryvdh/laravel-cors
+*** Edit for cross-site request forgery (CSRF): Add exception in app/http/middleware/verifyCSRFtoken.php 

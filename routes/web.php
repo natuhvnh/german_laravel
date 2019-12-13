@@ -47,3 +47,12 @@ Route::get('/services', function() {
 
 //like cards, services but put App/card:all in index function in introController
 Route::get('/intros', 'introController@index');     
+Route::post('/intros', 'introController@store');
+Route::get('/intros/create', 'introController@create'); //create come before show and return a view for create
+Route::get('/intros/{intro}', 'introController@show');    
+Route::get('/intros/{intro}/edit', 'introController@edit'); //return a view for edit    
+Route::put('/intros/{intro}', 'introController@update');
+Route::delete('/intros/{intro}', 'introController@destroy');    
+
+
+
