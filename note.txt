@@ -14,6 +14,11 @@ php artisan migrate
 6. Edit created table (Add columns...)
 - Change in database->migrations->table name.
 - php artisan migrate:fresh (loose all data => not used when deployed project)
+7. Create random data for model (database/factories)
+- Create factory: php artisan make:factory <factory name> -m "App\<name of model wanted to factory>"
+- Generate data: 
+php artisan tinker
+factory(App\<model name>::class, <number of data want to generate>)->create();
 
 *** Clone project from github fix error: https://stackoverflow.com/questions/48116952/how-to-start-laravel-project-that-i-downloaded-from-github
 *** Fix CORS: https://github.com/barryvdh/laravel-cors

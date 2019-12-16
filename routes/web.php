@@ -53,6 +53,10 @@ Route::get('/intros/{intro}', 'introController@show');
 Route::get('/intros/{intro}/edit', 'introController@edit'); //return a view for edit    
 Route::put('/intros/{intro}', 'introController@update');
 Route::delete('/intros/{intro}', 'introController@destroy');    
+// Slider
+Route::get('/sliders', 'sliderController@index');
+Route::post('/sliders', 'sliderController@store');
+
 
 
 

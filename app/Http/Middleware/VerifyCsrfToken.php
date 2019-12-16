@@ -22,7 +22,8 @@ class VerifyCsrfToken extends Middleware
         'cards',
         'services',
         'intros',
-        'intros/*'
-
+        'intros/*',
+        'sliders',
+        'sliders/*'
     ];
 }
